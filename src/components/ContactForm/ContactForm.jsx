@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
+import { addContact } from 'redux/operations';
+import { nanoid } from '@reduxjs/toolkit';
 
 import { FormContact } from './FormContact.styled';
 import { Border } from './Border.styled';
@@ -12,7 +13,9 @@ const ContactForm = () => {
     const form = evt.target;
     const name = form.elements.name.value;
     const number = form.elements.number.value;
-    dispatch(addContact(name, number));
+    const id = nanoid();
+    console.log(id, name, number);
+    dispatch(addContact(id, name, number));
     form.reset();
   };
 
