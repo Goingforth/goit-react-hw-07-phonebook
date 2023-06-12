@@ -9,7 +9,6 @@ import { Border } from './Border.styled';
 const ContactForm = () => {
   const dispatch = useDispatch();
   const contactsName = useSelector(selectNameContacts);
-  console.log(contactsName);
   const handleSubmit = evt => {
     evt.preventDefault();
     const form = evt.target;
