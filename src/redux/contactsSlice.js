@@ -37,13 +37,22 @@ const contactsSlice = createSlice({
     [addContact.fulfilled](state, action) {
       state.contacts.isLoading = false;
       state.contacts.error = null;
+      // const contactsName = state.contacts.items.map(el => el.name);
+      // const name = action.payload.name;
+      // if (contactsName.includes(name)) {
+      //   alert(`${name} is already in contacts`);
+      // } else {
       state.contacts.items.push(action.payload);
+      // }
+      // contactsName.includes(name)
+      //   ? alert(`${name} is already in contacts`)
+      //   : state.contacts.items.push(action.payload);
     },
     [deleteContact.fulfilled](state, action) {
       state.contacts.isLoading = false;
       state.contacts.error = null;
       const index = state.contacts.items.findIndex(
-        contact => contact.id === action.payload
+        contact => contact.id === action.payload.id
       );
       state.contacts.items.splice(index, 1);
     },

@@ -1,5 +1,7 @@
 import { useDispatch } from 'react-redux';
+//import { useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
+//import { selectContacts } from 'redux/selectors'; ////
 
 import { FormContact } from './FormContact.styled';
 import { Border } from './Border.styled';
@@ -12,10 +14,27 @@ const ContactForm = () => {
     const form = evt.target;
     const name = form.elements.name.value;
     const phone = form.elements.phone.value;
+    //const contacts = useSelector(state => state.data.contacts.item);
+    //const contacts = selectContacts(state);
+    // console.log(contacts);
+    // const contactsName = contacts.items.map(el => el.name);
+    // console.log(contactsName);
 
     dispatch(addContact({ name, phone }));
     form.reset();
   };
+  //
+  // const contactsName = state.contacts.items.map(el => el.name);
+  // const name = action.payload.name;
+  // if (contactsName.includes(name)) {
+  //   alert(`${name} is already in contacts`);
+  // } else {
+  //state.contacts.items.push(action.payload);
+  // }
+  // contactsName.includes(name)
+  //   ? alert(`${name} is already in contacts`)
+  //   : state.contacts.items.push(action.payload);
+  //
 
   return (
     <>
