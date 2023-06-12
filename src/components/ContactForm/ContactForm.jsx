@@ -6,6 +6,8 @@ import { selectNameContacts } from 'redux/selectors';
 import { FormContact } from './FormContact.styled';
 import { Border } from './Border.styled';
 
+import { toast } from 'react-toastify';
+
 const ContactForm = () => {
   const dispatch = useDispatch();
   const contactsName = useSelector(selectNameContacts);
@@ -16,7 +18,7 @@ const ContactForm = () => {
     const phone = form.elements.phone.value;
 
     contactsName.includes(name)
-      ? alert(`${name} is already in contacts`)
+      ? toast.error(`${name} is already in contacts`)
       : dispatch(addContact({ name, phone }));
     form.reset();
   };
