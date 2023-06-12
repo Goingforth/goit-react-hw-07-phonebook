@@ -6,8 +6,7 @@ const ContactItem = ({ id, name, phone }) => {
   const dispatch = useDispatch();
   return (
     <Item>
-      {/* <span>{name}:</span> <span>{phone}</span> */}
-      <span>{name}:</span> <span>{phone}</span>,<span>{id}</span>
+      <span>{name}:</span> <span>{phone}</span>
       <ButtonDelete
         onClick={() => {
           dispatch(deleteContact(id));
